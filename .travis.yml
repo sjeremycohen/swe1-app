@@ -1,10 +1,17 @@
 language: python
 python:
-- '3.7'
+  - '3.7'
 install:
-- pip install -r mysite/requirements.txt
+  - pip install -r mysite/requirements.txt
+before_script:
+  - python mysite/manage.py migrate
+  - python mysite/manage.py collectstatic --noinput
 script:
-- python mysite/manage.py test mysite/polls/
+  - black --check .
+  - flake8 .
+  - coverage run  --source=mysite,polls mysite/manage.py test
+after_script:
+  - coveralls
 deploy:
   provider: elasticbeanstalk
   access_key_id: AKIAU4ONV4CWAVPQA6HB
