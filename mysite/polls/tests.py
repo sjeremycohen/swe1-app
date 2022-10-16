@@ -10,4 +10,4 @@ class QuestionTest(TestCase):
 
     def test_question(self):
         question = Question.objects.get(id=self.q.pk)
-        self.assertEqual(question.question_text=="Is this a successful test?")
+        self.assertEqual(question.question_text, "Is this a successful test?")
