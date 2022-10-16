@@ -2,4 +2,4 @@ language: python
 python:
   - "3.7"
 install:
-  - pip install - ebdjango/requirements.txt
+  - pip install - mysite/requirements.txt
