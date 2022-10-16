@@ -9,5 +9,5 @@ class QuestionTest(TestCase):
         #Choice.objects.create(question=q.pk, choice_text="Also Yes")
 
     def test_question(self):
-        question = Question.objects.get(id=q.pk)
+        question = Question.objects.get(id=self.q.pk)
         self.assertEqual(question.question_text=="Is this a successful test?")
