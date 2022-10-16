@@ -5,7 +5,6 @@ install:
   - pip install -r mysite/requirements.txt
 before_script:
   - python mysite/manage.py migrate
-  - python mysite/manage.py collectstatic --noinput
 script:
   - black --check .
   - flake8 .
