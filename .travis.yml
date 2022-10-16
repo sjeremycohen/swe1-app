@@ -3,3 +3,5 @@ python:
   - "3.7"
 install:
   - pip install - mysite/requirements.txt
+script:
+  - python mysite/manage.py test mysite/polls/
