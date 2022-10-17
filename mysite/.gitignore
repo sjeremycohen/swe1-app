@@ -6,3 +6,8 @@
 
 # Mac DS store
 **/.DS_Store
+
+#bin and lib
+bin/
+lib/
+include/
