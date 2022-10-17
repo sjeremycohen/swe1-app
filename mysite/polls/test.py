@@ -1,5 +1,6 @@
 from django.test import TestCase
-from polls.models import Question, Choice
+from polls.models import Question  # , Choice
+
 
 # Create your tests here.
 class QuestionTest(TestCase):

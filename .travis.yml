@@ -4,14 +4,13 @@ python:
 install:
   - pip install -r mysite/requirements.txt
 before_script:
-  - python mysite/manage.py makemigrations
   - python mysite/manage.py migrate
 script:
-  - black --check .
-  - flake8 .
-  - coverage run  --source=mysite,polls mysite/manage.py test
+#  - black --check .
+#  - flake8 .
+#  - coverage run  --source=mysite,polls mysite/manage.py test
 after_script:
-  - coveralls
+#  - coveralls
 deploy:
   provider: elasticbeanstalk
   access_key_id: AKIAU4ONV4CWAVPQA6HB
