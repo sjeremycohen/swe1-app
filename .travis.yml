@@ -5,7 +5,8 @@ install:
   - pip install -r mysite/requirements.txt
 before_script:
   - python mysite/manage.py migrate
-# script:
+script:
+  - python mysite/manage.py test
 #  - black --check .
 #  - flake8 .
 #  - coverage run  --source=mysite,polls mysite/manage.py test
