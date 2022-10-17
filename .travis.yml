@@ -5,11 +5,11 @@ install:
   - pip install -r mysite/requirements.txt
 before_script:
   - python mysite/manage.py migrate
-script:
+# script:
 #  - black --check .
 #  - flake8 .
 #  - coverage run  --source=mysite,polls mysite/manage.py test
-after_script:
+# after_script:
 #  - coveralls
 deploy:
   provider: elasticbeanstalk
