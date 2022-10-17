@@ -5,9 +5,9 @@ install:
   - pip install -r requirements.txt
 before_script:
   - python manage.py migrate
-  - black .
+#  - black .
 script:
-# - black --check .
+ - black --check .
  - flake8 .
  - coverage run manage.py test
 deploy:
