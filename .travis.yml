@@ -10,8 +10,6 @@ script:
 # - black --check .
  - flake8 .
  - coverage run manage.py test
-after_script:
- - coveralls
 deploy:
   provider: elasticbeanstalk
   access_key_id: AKIAU4ONV4CWAVPQA6HB
@@ -25,3 +23,5 @@ deploy:
     repo: sjeremycohen/swe1-app
     branch: main
   skip_cleanup: 'true'
+after_success:
+ - coveralls
