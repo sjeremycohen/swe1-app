@@ -7,11 +7,11 @@ before_script:
   - python manage.py migrate
 script:
   - python manage.py test
-#  - black --check .
-#  - flake8 .
-#  - coverage run  --source=mysite,polls mysite/manage.py test
-# after_script:
-#  - coveralls
+ - black --check .
+ - flake8 .
+ - coverage run  --source=mysite,polls manage.py test
+after_script:
+ - coveralls
 deploy:
   provider: elasticbeanstalk
   access_key_id: AKIAU4ONV4CWAVPQA6HB
