@@ -1,13 +1,13 @@
 
 # Elastic Beanstalk Files
-# .elasticbeanstalk/*
-# !.elasticbeanstalk/*.cfg.yml
-# !.elasticbeanstalk/*.global.yml
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
 
 # Mac DS store
  **/.DS_Store
 
 # bin and lib
-# bin/
-# lib/
-# include/
+bin/
+lib/
+include/
