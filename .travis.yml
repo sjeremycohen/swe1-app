@@ -1,0 +1,26 @@
+language: python
+python:
+  - '3.8'
+install:
+  - pip install -r requirements.txt
+before_script:
+  - python manage.py migrate
+script:
+ - black --check .
+ - flake8 .
+ - coverage run manage.py test
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: AKIAU4ONV4CWAVPQA6HB
+  secret_access_key:
+    secure: KVuS0H/mZLOwzFAbAjVNg3V5J8MrZ4oyRUsYq86eEpbwM2NH6FizRVA3R48I0LXJomU42ZT+q0YnRnYYWy/7YDQDrxk1hFJKe8eOLrBMY8rN/Gk9ejlw1MbgV/kF9X7Bterb72kQchhe5ZGDCSFeJoZTlt2JD9VFyzfFRRy/qSmqWl79PxOR5YtkTuSWBgclvAg0N1BjgrGCRJbPFq3Jy2xwH/1R8ndGgYh3euFOBN0uqCrjPrGF15HquNukniJN8/vm6gzLpRBowVgi4MkWnWrE8tQxT15FUC2xyVVJ17zex4BWtEbd4G3T+26ZOkYtWVHqCMm7I5Eoa7cD+6LjZuX/nhz2oGKQZ+phTyGM1qSP09LRem6ob8tIwrL2pZF8xP0KSznmbOy5FRNebsbSncsgW4NDygrltQ9NgB9DiL/H5gSs4K5Ncqv2zIwagCMy0O7m81XFOox4sPVK36sTvPZ7LSpp8GDOf1HwFR4zjFo0y6reurGE/oAIdZ6kVyUp3xbXstMkqZC8sVJp7sJuLFTs7lBP10lJEBv9N5iQS5jWEhiD3SHPpp3wf5x8YIXIekqUeA7vEKwHDjN6pT6AdGIp0mpKVc3865M8zG/Rxnl250nphMUxDsC3JMtiht9JKNJ2BsJcJg1MaxfQ/xLTfq2WQCwjpWap8yJeaplw3yQ=
+  region: us-east-1
+  app: django-tutorial-2
+  env: django-env-2
+  bucket_name: elasticbeanstalk-us-east-1-335975669932
+  on:
+    repo: sjeremycohen/swe1-app
+    branch: main
+  skip_cleanup: 'true'
+after_success:
+ - coveralls
